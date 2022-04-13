@@ -1,12 +1,16 @@
 import React from 'react'
-import ReactDOM from 'react-dom'
+import {render} from 'react-dom';
 import {Provider} from 'react-redux'
-import store from '../store/store.js'
-import '../public/index.css'
+import store from '../store/'
+import Routes from './Routes'
+import {BrowserRouter as Router} from 'react-router-dom'
 
-ReactDOM.render(
+
+render(
   <Provider store={store} >
-  <div>Hello, world!</div>,
+  <Router>
+  <Routes />
+  </Router>
   </Provider>,
   document.getElementById('ReactApp')
-);
+)

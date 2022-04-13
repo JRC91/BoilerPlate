@@ -2,7 +2,15 @@ const db = require('./db.js')
 const app = require('./index')
 const port = 8080
 
-db.sync()
-  .then(function(){
-    app.listen(port)
-  })
+const init = async () => {
+  try {
+    await db.sync()
+
+  app.listen(port, () => console.log(`listening on port ${port}`))
+}
+catch(err){
+  console.log(err)
+}
+}
+
+init ()
