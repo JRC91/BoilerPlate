@@ -3,6 +3,12 @@ const express = require('express');
 const morgan = require('morgan')
 const bodyParser = require('body-parser');
 const app = express();
+'use strict'
+const {db, User} = require('./db/models')
+
+
+
+
 const port = 8080
 
 app.use(express.static(path.join(__dirname, '../public/')))
@@ -11,9 +17,22 @@ app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use('/auth', require('./router/router'))
 
-app.listen(port, () => {
-  console.log(`Example app listening on port ${port}`)
-})
+
+const init = async () => {
+  try {
+    await db.sync()
+    await User.sync()
+  app.listen(port, () => console.log(`listening on port ${port}`))
+}
+catch(err){
+  console.log(err)
+}
+}
+
+init ()
+
+
+
 
 app.use(function (err, req, res, next) {
   console.error(err);

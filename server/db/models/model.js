@@ -4,7 +4,7 @@ const bcrypt = require('bcrypt')
 const axios = require('axios')
 const jwt = require('jsonwebtoken')
 
-
+let secret = 'glockenspiel'
 const SALT_ROUNDS = 5;
 
 const User = db.define('user', {
@@ -18,15 +18,13 @@ const User = db.define('user', {
   },
 })
 
-module.exports = User
-
 
 User.prototype.correctPassword = function(candidatePwd) {
   return bcrypt.compare(candidatePwd, this.password);
 }
 
 User.prototype.generateToken = function() {
-  return jwt.sign({id: this.id}, process.env.JWT)
+  return jwt.sign({id: this.id}, secret)
 }
 
 
@@ -42,7 +40,7 @@ User.authenticate = async function({ username, password }){
 
 User.findByToken = async function(token) {
   try {
-    const {id} = await jwt.verify(token, process.env.JWT)
+    const {id} = await jwt.verify(token, secret)
     const user = User.findByPk(id)
     if (!user) {
       throw 'nooo'

@@ -54,7 +54,7 @@ const mapDispatch = (dispatch) => {
   return {
     handleSubmit(evt) {
       evt.preventDefault()
-      console.log('submitted')
+      console.log('submitted', evt.target)
       const formName = evt.target.name
       const username = evt.target.username.value
       const password = evt.target.password.value

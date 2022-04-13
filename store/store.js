@@ -28,15 +28,15 @@ export function TokenThunk () {
   catch(err){console.log(err)}
 }}
 
-export const authenticate = (username, password, method) =>{
-  async (dispatch) => {
+export const authenticate = (username, password, method) => async dispatch => {
   try {
-    console.log('authenticated')
-    const response = await axios.post(`/auth/${method}`, {username, password})
-    window.localStorage.setItem(TOKEN, response.data.token)
-    dispatch(TokenThunk())}
-  catch(err){console.log(err)}
-}}
+    const res = await axios.post(`/auth/${method}`, {username, password})
+    window.localStorage.setItem(TOKEN, res.data.token)
+    dispatch(TokenThunk())
+  } catch (authError) {
+    return dispatch(setAuth({error: authError}))
+  }
+}
 
 export const logout = () => {
   window.localStorage.removeItem(TOKEN)
