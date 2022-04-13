@@ -1,8 +1,6 @@
-const Sequelize = require('sequelize')
-const User = require('./models/model')
-const db = new Sequelize('postgres://localhost:5432/yourdbname', {
-  logging: false
-})
+
+const User = require('./models')
+const db = require('./models')
 module.exports = {db,
   models: {
     User

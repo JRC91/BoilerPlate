@@ -11,17 +11,17 @@ class routes extends Component {
   return (
     <div>
       <Nav />
-      <Home />
         {this.props.isLoggedIn ? (
           <Switch>
-            <Route path="/home" element={Home} />
+            <Route path="/home" component={Home} />
             <Redirect to="/home" />
           </Switch>
         ) : (
           <Switch>
-            <Route path='/' exact element={ Login } />
-            <Route path="/login" element={Login} />
-            <Route path="/signup" element={Signup} />
+            {console.log('it is here')}
+            <Route path='/' exact component={Login } />
+            <Route path="/login" component={Login} />
+            <Route path="/signup" component={Signup} />
           </Switch>
         )}
       </div>

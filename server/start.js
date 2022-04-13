@@ -1,4 +1,4 @@
-const db = require('./db.js')
+const db = require('./db')
 const app = require('./index')
 const port = 8080
 

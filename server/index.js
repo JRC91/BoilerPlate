@@ -9,8 +9,7 @@ app.use(express.static(path.join(__dirname, '../public/')))
 app.use(morgan('dev'))
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
-
-
+app.use('/auth', require('./router/router'))
 
 app.listen(port, () => {
   console.log(`Example app listening on port ${port}`)

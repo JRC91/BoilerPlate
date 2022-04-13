@@ -14,6 +14,7 @@ const setAuth = auth =>({
 export function TokenThunk () {
   async (dispatch) =>{
     try{
+      console.log('tokenThunk')
     const token = window.localStorage.getItem(TOKEN)
     if (token) {
       const response = await axios.get('/auth/me', {
@@ -30,6 +31,7 @@ export function TokenThunk () {
 export const authenticate = (username, password, method) =>{
   async (dispatch) => {
   try {
+    console.log('authenticated')
     const response = await axios.post(`/auth/${method}`, {username, password})
     window.localStorage.setItem(TOKEN, response.data.token)
     dispatch(TokenThunk())}

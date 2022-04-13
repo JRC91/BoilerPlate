@@ -10,6 +10,7 @@ const AuthForm = props => {
 
   return (
     <div>
+      <h1>{displayName}</h1>
       <form onSubmit={handleSubmit} name={name}>
         <div>
           <label htmlFor="username">
@@ -49,10 +50,11 @@ const mapSignup = state => {
   }
 }
 
-const mapDispatch = dispatch => {
+const mapDispatch = (dispatch) => {
   return {
     handleSubmit(evt) {
       evt.preventDefault()
+      console.log('submitted')
       const formName = evt.target.name
       const username = evt.target.username.value
       const password = evt.target.password.value
