@@ -1,5 +1,5 @@
-const { db } = require("./server/db/models");
-const {User} = require('./server/db/models')
+const { db } = require("../server/db/models");
+const {User} = require('../server/db/models')
 
 const users = [{
   username:'Clong',
@@ -12,7 +12,6 @@ const seed = async () => {
     await Promise.all(users.map(user => {
       return User.create(user)
     }))
-    // seed your database here!
   } catch (err) {
     console.log((err));
   }
@@ -29,7 +28,7 @@ if (require.main === module) {
 
     })
     .catch(err => {
-      console.error(("Oh noes! Something went wrong!"));
+      console.error(("Something went wrong!"));
       console.error(err);
 
     });

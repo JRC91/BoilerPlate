@@ -3,7 +3,7 @@ import {createStore, combineReducers, applyMiddleware} from 'redux'
 import {createLogger} from 'redux-logger'
 import thunkMiddleware from 'redux-thunk'
 import {composeWithDevTools} from 'redux-devtools-extension'
-import auth from './store'
+import auth from './auth'
 
 const reducer = combineReducers({ auth })
 const middleware = composeWithDevTools(
@@ -12,4 +12,4 @@ const middleware = composeWithDevTools(
 const store = createStore(reducer, middleware)
 
 export default store
-export * from './store'
+export * from './auth'

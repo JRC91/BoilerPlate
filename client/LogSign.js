@@ -1,6 +1,6 @@
 import React from 'react'
 import {connect} from 'react-redux'
-import {authenticate} from '../store/store.js'
+import {authenticate} from '../store/auth.js'
 
 /**
  * COMPONENT
@@ -54,7 +54,7 @@ const mapDispatch = (dispatch) => {
   return {
     handleSubmit(evt) {
       evt.preventDefault()
-      console.log('submitted', evt.target)
+
       const formName = evt.target.name
       const username = evt.target.username.value
       const password = evt.target.password.value

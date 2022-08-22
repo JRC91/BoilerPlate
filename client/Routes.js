@@ -3,7 +3,7 @@ import Nav from "./nav";
 import {connect} from 'react-redux'
 import {Route, Switch, Redirect} from 'react-router-dom'
 import Home from './home';
-import {TokenThunk} from '../store'
+import {TokenThunk} from '../store/auth'
 import {Login, Signup} from './LogSign'
 
 class routes extends Component {
