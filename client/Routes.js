@@ -5,7 +5,7 @@ import {Route, Switch, Redirect} from 'react-router-dom'
 import Home from './home';
 import {TokenThunk} from '../store/auth'
 import {Login, Signup} from './LogSign'
-
+import {Footer} from './footer'
 class routes extends Component {
   render() {
   return (
@@ -24,6 +24,7 @@ class routes extends Component {
             <Route path="/signup" component={Signup} />
           </Switch>
         )}
+        <Footer />
       </div>
   )
   }
