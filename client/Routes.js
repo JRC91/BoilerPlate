@@ -4,8 +4,8 @@ import {connect} from 'react-redux'
 import {Route, Switch, Redirect} from 'react-router-dom'
 import Home from './home';
 import {TokenThunk} from '../store/auth'
-import {Login, Signup} from './LogSign'
-import {Footer} from './footer'
+import {Login, Signup} from '.Components/LogSign'
+import {Footer} from '.Components/footer'
 class routes extends Component {
   render() {
   return (
